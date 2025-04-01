@@ -20,16 +20,13 @@ function Navbar() {
             <Link to="/">Inicio</Link>
           </li>
           <li>
-            <Link to="/recursos">Recursos</Link>
+            <Link to="/sexualidad">Sexualidad y Bienestar</Link>
           </li>
           <li>
             <Link to="/lugares">Lugares</Link>
           </li>
           <li>
             <Link to="/eventos">Eventos</Link>
-          </li>
-          <li>
-            <Link to="/faq">FAQ</Link>
           </li>
           <li>
             <Link to="/contacto">Contacto</Link>

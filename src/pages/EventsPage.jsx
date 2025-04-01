@@ -1,4 +1,3 @@
-// src/pages/EventsPage.jsx
 import React from "react";
 import Events from "../components/Events";
 

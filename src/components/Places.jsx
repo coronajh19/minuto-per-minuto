@@ -1,4 +1,3 @@
-// src/components/Places.jsx
 import React from "react";
 
 /**

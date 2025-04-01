@@ -1,13 +1,10 @@
-// src/components/Events.jsx
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
+import EventItem from "./EventItem";
 
-/**
- * Este componente maneja la lista de eventos
- * y un formulario para proponer nuevos.
- */
 function Events() {
   const [events, setEvents] = useState([
     {
+      id: 1,
       title: "Charla sobre salud mental",
       date: "2025-06-10",
       location: "Centro Cultural ABC, Asturias",
@@ -15,6 +12,7 @@ function Events() {
         "Un espacio abierto para hablar sobre salud mental y apoyo a la comunidad LGBT+.",
     },
     {
+      id: 2,
       title: "Tarde de café y networking",
       date: "2025-07-02",
       location: "Cafetería Inclusiva XYZ, Asturias",
@@ -30,33 +28,29 @@ function Events() {
     description: "",
   });
 
-  const handleChange = (e) => {
-    setNewEvent({ ...newEvent, [e.target.name]: e.target.value });
-  };
+  // useCallback para memorizar la función handleChange
+  const handleChange = useCallback((e) => {
+    setNewEvent((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Agregar el nuevo evento al array
-    setEvents([...events, newEvent]);
-    // Limpiar formulario
-    setNewEvent({ title: "", date: "", location: "", description: "" });
-  };
+  // useCallback para memorizar la función handleSubmit
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      // Usamos Date.now() para generar un ID único
+      const eventWithId = { ...newEvent, id: Date.now() };
+      setEvents((prevEvents) => [...prevEvents, eventWithId]);
+      setNewEvent({ title: "", date: "", location: "", description: "" });
+    },
+    [newEvent]
+  );
 
   return (
     <section className="section">
       <h2>Próximos Eventos</h2>
       <ul>
-        {events.map((ev, index) => (
-          <li key={index} style={{ marginBottom: "1rem" }}>
-            <h3>{ev.title}</h3>
-            <p>
-              <strong>Fecha:</strong> {ev.date}
-            </p>
-            <p>
-              <strong>Lugar:</strong> {ev.location}
-            </p>
-            <p>{ev.description}</p>
-          </li>
+        {events.map((ev) => (
+          <EventItem key={ev.id} event={ev} />
         ))}
       </ul>
 
@@ -102,7 +96,7 @@ function Events() {
             value={newEvent.description}
             onChange={handleChange}
             required
-          ></textarea>
+          />
         </label>
         <button type="submit">Agregar Evento</button>
       </form>
