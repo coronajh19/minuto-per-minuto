@@ -1,6 +1,6 @@
 # Minuto per Minuto
 
-**Minuto per Minuto** es un proyecto desarrollado con **React + Vite** que busca ofrecer un espacio seguro e inclusivo a la comunidad LGBTQ+ y personas neurodivergentes, inicialmente centrado en la región de Asturias. Permite compartir recursos de apoyo, ubicar lugares de interés, organizar o proponer eventos, y fomentar la conexión y el bienestar de la comunidad.
+**Minuto per Minuto** es un proyecto desarrollado con **React + Vite** que busca ofrecer un espacio seguro e inclusivo a la comunidad LGBTQ+, inicialmente centrado en la región de Asturias. Permite compartir recursos de apoyo, ubicar lugares de interés, organizar o proponer eventos, y fomentar la conexión y el bienestar de la comunidad.
 
 ## Características
 
@@ -14,5 +14,5 @@
 
 - **[React](https://reactjs.org/)**: Librería principal de JavaScript para construir la interfaz.
 - **[Vite](https://vitejs.dev/)**: Herramienta de build y entorno de desarrollo rápido.
-- **[React Router DOM](https://reactrouter.com/)**: Para el sistema de enrutado (páginas de FAQ, Contacto, Lugares, etc.).
+- **[React Router DOM](https://reactrouter.com/)**: Para el sistema de enrutado (páginas de Eventos, Contacto, Lugares, etc.).
 - **CSS**: Arquitectura de estilos sencilla, separada por componentes y páginas.
