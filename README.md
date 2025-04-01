@@ -1,12 +1,18 @@
-# React + Vite
+# Minuto per Minuto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Minuto per Minuto** es un proyecto desarrollado con **React + Vite** que busca ofrecer un espacio seguro e inclusivo a la comunidad LGBTQ+ y personas neurodivergentes, inicialmente centrado en la región de Asturias. Permite compartir recursos de apoyo, ubicar lugares de interés, organizar o proponer eventos, y fomentar la conexión y el bienestar de la comunidad.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Recursos locales (Asturias)**: Enlaces y contactos de asociaciones, centros de apoyo en temas de VIH, salud sexual, abuso de sustancias, feminismo, entre otros.
+- **Lugares de interés**: Listado de bares, cafeterías, locales y espacios seguros que promueven eventos para la comunidad LGBTQ+.
+- **Eventos**: Los usuarios pueden ver y proponer actividades (charlas, talleres, quedadas, etc.).
+- **Preguntas Frecuentes**: FAQ con información relevante sobre temas de salud, sexualidad, y el proyecto en sí.
+- **Formulario de contacto**: Para que la gente pueda dejar sus dudas, sugerencias o experiencias.
 
-## Expanding the ESLint configuration
+## Tecnologías utilizadas
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **[React](https://reactjs.org/)**: Librería principal de JavaScript para construir la interfaz.
+- **[Vite](https://vitejs.dev/)**: Herramienta de build y entorno de desarrollo rápido.
+- **[React Router DOM](https://reactrouter.com/)**: Para el sistema de enrutado (páginas de FAQ, Contacto, Lugares, etc.).
+- **CSS**: Arquitectura de estilos sencilla, separada por componentes y páginas.
