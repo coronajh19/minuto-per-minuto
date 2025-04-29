@@ -7,70 +7,78 @@ function ContactPage() {
     message: "",
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Formulario enviado:", formData);
-
-    // Guardar en localStorage
     localStorage.setItem("contactForm", JSON.stringify(formData));
-
-    // Resetear campos
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
-
-    alert("Gracias por tu mensaje 🫶");
+    setFormData({ name: "", email: "", message: "" });
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
-    <section className="section">
-      <h2>Contacto</h2>
-      <p>
-        Si tienes dudas, sugerencias o quieres compartir tu experiencia,
-        ¡escríbenos!
-      </p>
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <label>
-          Nombre:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Correo electrónico:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Mensaje:
-          <textarea
-            name="message"
-            rows="4"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </label>
-        <button type="submit">Enviar</button>
-      </form>
+    <section className="section seccion-contacto">
+      <div className="content-constrain">
+        <h2 className="titulo-dibujado" data-aos="fade-up">
+          Contacto
+        </h2>
+        <p className="hero-sub" data-aos="fade-up" data-aos-delay="100">
+          Si tienes dudas, sugerencias o quieres compartir tu experiencia,
+          ¡escríbenos!
+        </p>
+
+        {submitted && (
+          <p className="form-success" data-aos="zoom-in">
+            Gracias por tu mensaje 🫶
+          </p>
+        )}
+
+        <form
+          onSubmit={handleSubmit}
+          className="contact-form"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <label>
+            Nombre:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Correo electrónico:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Mensaje:
+            <textarea
+              name="message"
+              rows="4"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </label>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
     </section>
   );
 }

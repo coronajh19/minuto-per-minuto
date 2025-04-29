@@ -1,6 +1,7 @@
 import React from "react";
-import EducationalCard from "./EducationalCard";
+import ResourceCard from "./ResourceCard";
 
+// === Temas Educativos ===
 const topics = [
   {
     title: "🧬 VIH",
@@ -26,22 +27,27 @@ const topics = [
   },
 ];
 
-function EducationalInfo() {
+function EducationalResources() {
   return (
-    <section className="section">
-      <h3>📚 Información Educativa</h3>
-      <div className="educational-cards">
-        {topics.map((item, index) => (
-          <EducationalCard
-            key={index}
-            title={item.title}
-            description={item.description}
-            link={item.link}
-          />
-        ))}
+    <section className="section seccion-rosa">
+      <div className="content-constrain">
+        <h2 className="titulo-dibujado" data-aos="fade-up">
+          📚 Información Educativa
+        </h2>
+        <div className="educational-cards">
+          {topics.map((item, index) => (
+            <div key={index} data-aos="fade-up" data-aos-delay={index * 100}>
+              <ResourceCard
+                title={item.title}
+                description={item.description}
+                link={item.link}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-export default EducationalInfo;
+export default EducationalResources;

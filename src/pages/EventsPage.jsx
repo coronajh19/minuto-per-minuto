@@ -1,9 +1,12 @@
 import React from "react";
-import Events from "../components/Events";
+import EventsSection from "../components/EventsSection";
 
 function EventsPage() {
-  // Aquí simplemente renderizas el componente Events
-  return <Events />;
+  return (
+    <section className="section seccion-eventos">
+      <EventsSection />
+    </section>
+  );
 }
 
 export default EventsPage;
