@@ -2,32 +2,31 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout";
 
+// === Lazy loading de páginas ===
 const Home = lazy(() => import("./pages/Home"));
-const Sexualidad = lazy(() => import("./pages/Sexualidad"));
-const PlacesPage = lazy(() => import("./pages/PlacesPage"));
+const WellnessPage = lazy(() => import("./pages/WellnessPage"));
+const SafePlacesPage = lazy(() => import("./pages/SafePlacesPage"));
 const EventsPage = lazy(() => import("./pages/EventsPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 
 function App() {
   return (
     <Router>
-      <Suspense fallback={<div>Cargando...</div>}>
+      <Suspense fallback={<div className="loading">Cargando página...</div>}>
         <Routes>
           <Route
             path="/"
             element={
-              // En la página de inicio, se muestra el sidebar
               <Layout>
                 <Home />
               </Layout>
             }
           />
           <Route
-            path="/sexualidad"
+            path="/bienestar"
             element={
-              // En la página de sexualidad, se oculta el sidebar
-              <Layout hideSidebar={true}>
-                <Sexualidad />
+              <Layout>
+                <WellnessPage />
               </Layout>
             }
           />
@@ -35,7 +34,7 @@ function App() {
             path="/lugares"
             element={
               <Layout>
-                <PlacesPage />
+                <SafePlacesPage />
               </Layout>
             }
           />

@@ -1,8 +1,0 @@
-.leaflet-container {
-  height: 400px;
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  margin: 2rem 0;
-  filter: grayscale(0.2) brightness(0.95);
-}

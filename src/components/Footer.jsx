@@ -1,11 +1,7 @@
 import React from "react";
 
 function Footer() {
-  return (
-    <footer className="footer">
-      Hecho con amor por alguien que vivió, sanó y decidió ayudar 💖
-    </footer>
-  );
+  return <footer className="footer"></footer>;
 }
 
 export default Footer;

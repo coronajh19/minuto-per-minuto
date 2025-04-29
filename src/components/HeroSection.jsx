@@ -1,15 +1,18 @@
 import React from "react";
+import "../styles.css";
 
 function HeroSection() {
   return (
-    <section className="hero">
-      <h1>Minuto per Minuto</h1>
-      <p>Encuentra tu espacio. Cuida tu salud. Conecta con tu comunidad.</p>
-      <p>
-        <em>
+    <section className="section seccion-inicio hero-mostaza full-hero">
+      <div className="hero-content" data-aos="fade-up">
+        <h1 className="titulo-dibujado">Minuto per Minuto</h1>
+        <p className="hero-sub">
+          ENCUENTRA TU ESPACIO. CUIDA TU SALUD. CONECTA CON TU COMUNIDAD.
+        </p>
+        <p className="hero-desc">
           Recursos LGBTQ+, salud mental y sexualidad, reunidos en un solo lugar.
-        </em>
-      </p>
+        </p>
+      </div>
     </section>
   );
 }

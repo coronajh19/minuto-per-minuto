@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const EventItem = React.memo(({ event }) => (
-  <li style={{ marginBottom: "1rem" }}>
+const EventCard = React.memo(({ event }) => (
+  <li className="event-card" data-aos="fade-up">
     <h3>{event.title}</h3>
     <p>
       <strong>Fecha:</strong> {event.date}
@@ -14,7 +14,7 @@ const EventItem = React.memo(({ event }) => (
   </li>
 ));
 
-EventItem.propTypes = {
+EventCard.propTypes = {
   event: PropTypes.shape({
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
@@ -24,4 +24,4 @@ EventItem.propTypes = {
   }).isRequired,
 };
 
-export default EventItem;
+export default EventCard;

@@ -1,15 +1,4 @@
-/* ===== Tipografía y ajustes globales ===== */
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
-
-/*
- Paleta (Dark Theme):
- - Fondo global: #2C2C2C
- - Texto base: #F0F0F0
- - Secciones: #333
- - Amarillo hover/acento: #FFC94F
- - Amarillo intenso (destacados): #FFD700
- - Texto oscuro durante hover: #2C2C2C
-*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&family=Staatliches&display=swap");
 
 * {
   margin: 0;
@@ -23,116 +12,69 @@ html {
 
 body {
   font-family: "Nunito", Arial, sans-serif;
-  background-color: #2c2c2c;
-  color: #f0f0f0;
+  background-color: #fafaf7;
+  color: #111;
   line-height: 1.6;
 }
 
-/* Contenedor principal del layout */
+/* === GLOBAL TRANSITIONS === */
+a,
+button,
+input,
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* === TYPOGRAPHY === */
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Staatliches", sans-serif;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.1rem;
+}
+
+/* === CONTAINERS === */
 .container {
-  display: flex;
-  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
 }
 
-.main-content {
-  flex: 3;
+.content-constrain {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.sidebar-content {
-  flex: 1;
-  max-width: 300px;
-  background-color: #333;
-  color: #f0f0f0;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  height: fit-content;
-}
-
-/* Responsive (sidebar debajo en móviles) */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .sidebar-content {
-    max-width: 100%;
-  }
-}
-
-/* ===== Cabecera / Hero ===== */
-.hero {
-  background-color: #111;
-  color: #f0f0f0;
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-/* ===== Secciones Genéricas ===== */
-.section {
-  padding: 2rem;
-  background-color: #333;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.section h2 {
-  margin-bottom: 1rem;
-}
-
-.section p {
-  margin-bottom: 1rem;
-}
-
-/* ===== Nuevas Clases para la sección Sexualidad y Bienestar ===== */
-.article-section {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background-color: #333;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.article-title {
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-  color: #ffc94f;
-}
-
-/* ===== Footer ===== */
-.footer {
-  background-color: #111;
-  color: #f0f0f0;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.95rem;
-  margin-top: 2rem;
-  border-radius: 6px;
-}
-
-/* ===== Navbar ===== */
+/* === NAVBAR === */
 .navbar {
-  background-color: #111;
-  color: #f0f0f0;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #ffffff;
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-container {
@@ -144,20 +86,21 @@ body {
 }
 
 .logo {
-  font-size: 1.7rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-family: "Pacifico", cursive;
+  color: #111;
+  text-decoration: none;
 }
 
 .menu-toggle {
-  font-size: 1.5rem;
   background: none;
   border: none;
-  color: #f0f0f0;
-  display: none;
+  font-size: 2rem;
+  color: #111;
   cursor: pointer;
+  display: none;
 }
 
-/* Links de navegación */
 .nav-links {
   list-style: none;
   display: flex;
@@ -165,285 +108,423 @@ body {
 }
 
 .nav-links a {
-  color: #f0f0f0;
+  padding: 0.5rem 1rem;
   text-decoration: none;
-  padding: 0.5rem 0.8rem;
-  border-radius: 4px;
-  transition: background-color 0.2s, color 0.2s;
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  color: #111;
+  background-color: transparent;
+  transition: all 0.3s ease;
 }
 
+/* Botón activo por página */
+.nav-links a.active-inicio {
+  background-color: #ffe07d;
+  border-color: #ffd43b;
+}
+
+.nav-links a.active-bienestar {
+  background-color: #d36d9e;
+  border-color: #d36d9e;
+  color: #111;
+}
+
+.nav-links a.active-lugares {
+  background-color: #73d2de;
+  border-color: #48b8cc;
+  color: #111;
+}
+
+.nav-links a.active-eventos {
+  background-color: #218380;
+  border-color: #1b6f6c;
+  color: #111;
+}
+
+.nav-links a.active-contacto {
+  background-color: #88d498;
+  border-color: #6cc57d;
+  color: #111;
+}
+
+/* Hover para todos */
 .nav-links a:hover {
-  background-color: #ffc94f;
-  color: #2c2c2c;
+  transform: translateY(-2px);
+  border: 2px solid #000;
+  background-color: #fafaf7;
+  color: #000;
 }
 
-/* Responsive Navbar */
+/* === Responsive Navbar === */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
-
   .nav-links {
     display: none;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ccc;
+    border-radius: 12px;
     flex-direction: column;
-    gap: 0;
-    margin-top: 1rem;
-    background-color: #111;
-    border-radius: 6px;
-    overflow: hidden;
+    padding: 1rem;
+    gap: 1rem;
+    backdrop-filter: blur(8px);
   }
-
-  .nav-links li {
-    border-bottom: 1px solid #444;
-  }
-
   .nav-links.open {
     display: flex;
   }
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+  }
 }
 
-/* ===== FAQ y Recursos (Acordeón) ===== */
+/* === CONTACT PAGE BUTTON ACTUALIZADO === */
+.contact-form button {
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  background-color: #88d498;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #6cc57d;
+  color: #fff;
+  border-color: #000;
+  transform: translateY(-3px);
+}
+
+/* === SECTIONS === */
+.section {
+  padding: 6rem 1rem;
+  min-height: 100vh;
+}
+
+/* Inicio Hero Section */
+.seccion-inicio {
+  background: linear-gradient(135deg, #ffe07d 0%, #fff2c7 100%);
+}
+
+/* Sexualidad */
+.seccion-sexualidad {
+  background: linear-gradient(135deg, #fbe0ec 0%, #f6c0d8 100%);
+}
+
+/* Lugares */
+.seccion-lugares {
+  background: linear-gradient(135deg, #7e8ce0 0%, #b5bdf4 100%);
+}
+
+/* Eventos */
+.seccion-eventos {
+  background: linear-gradient(135deg, #73d2de 0%, #b3eaf1 100%);
+}
+
+/* Contacto */
+.seccion-contacto {
+  background: linear-gradient(135deg, #88d498 0%, #c2f0c8 100%);
+}
+/* === HERO SECTION (pequeño) === */
+.hero-content {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.titulo-dibujado {
+  font-family: "Staatliches", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.hero-sub {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+/* === FAQ ITEMS === */
 .faq-category {
-  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .faq-item {
-  margin-bottom: 1rem;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 .faq-question {
-  width: 100%;
+  background: none;
+  border: none;
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.2rem;
   text-align: left;
-  background-color: #2c2c2c;
-  color: #f0f0f0;
-  padding: 0.75rem 1rem;
-  font-weight: 600;
-  border: 1px solid #444;
-  border-radius: 6px;
+  width: 100%;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.faq-question:hover {
-  background-color: #ffc94f;
-  color: #2c2c2c;
+  color: #333;
+  padding: 0.5rem 0;
 }
 
 .faq-answer {
-  margin-top: 0.5rem;
-  padding: 0.75rem 1rem;
-  background-color: #333;
-  border: 1px solid #444;
-  border-radius: 6px;
-  color: #f0f0f0;
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
 }
 
-/* ===== Recursos - Lista de enlaces genéricos ===== */
-.section ul {
-  list-style: none;
-  padding-left: 0;
+/* === ASSOCIATION CARDS === */
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
-.section li {
-  margin: 0.75rem 0;
+.info-card {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.section li a {
-  color: #f0f0f0;
+/* Mejor hover para las tarjetas */
+.info-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  border-color: #f368a6; /* Línea rosa ligera al hacer hover */
+}
+
+/* Suave transición de todos los cambios */
+.info-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.info-card h4 {
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #111;
+}
+
+.info-card p {
+  font-size: 1rem;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+.info-card a {
+  display: inline-block;
+  margin-top: 1rem;
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.2s, color 0.2s;
+  color: #111;
+  font-weight: bold;
 }
 
-.section li a:hover {
-  background-color: #ffc94f;
-  color: #2c2c2c;
+/* === RESOURCE LOCATION (dentro de Recursos Útiles) === */
+.resource-location {
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 
-/* ===== Contact Form ===== */
+.resource-location strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.resource-location ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.resource-location li {
+  margin-bottom: 0.3rem;
+}
+/* === NUEVAS CLASES PARA WELLNESS === */
+
+/* Espaciado extra para cada sección */
+.section h2.titulo-dibujado {
+  margin-bottom: 2.5rem;
+}
+
+/* Extra separación en los grupos de tarjetas o FAQs */
+.info-cards,
+.faq-category {
+  margin-top: 2rem;
+}
+
+/* Mejora general de botones FAQ (hover) */
+.faq-question:hover {
+  color: #d36d9e;
+}
+
+/* Más padding para la sección blanca (Asociaciones) */
+.seccion-blanca {
+  background-color: #fafaf7;
+}
+
+/* Mejoras visuales para el botón abierto del FAQ */
+.faq-item.open .faq-question {
+  color: #218380;
+}
+
+/* Espaciado en recursos útiles (listas) */
+.resource-location ul {
+  margin-top: 0.5rem;
+}
+
+/* Pequeño ajuste responsive para las tarjetas */
+@media (max-width: 768px) {
+  .info-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.separator {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #f368a6, #ffe07d);
+  margin: 4rem 0;
+  border: none;
+}
+/* Fondos específicos */
+.seccion-rosa {
+  background: linear-gradient(135deg, #fbe0ec 0%, #f6c0d8 100%);
+}
+
+.seccion-blanca {
+  background-color: #fafaf7;
+}
+
+/* Mejor transición entre bloques */
+.section {
+  padding: 6rem 1rem;
+  position: relative;
+}
+
+/* Suave sombra interna a cada sección para dar profundidad */
+.section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* === CONTACT PAGE FORM === */
 .contact-form {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: #2c2c2c;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 600px;
-  margin: 2rem auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  align-items: stretch;
+  width: 100%;
+  text-align: left;
 }
 
 .contact-form label {
   display: flex;
   flex-direction: column;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+  font-family: "Staatliches", sans-serif;
 }
 
 .contact-form input,
 .contact-form textarea {
   margin-top: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #555;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-family: "Nunito", Arial, sans-serif;
   font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  background-color: #333;
-  color: #f0f0f0;
+  resize: vertical;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #ffc94f;
-  box-shadow: 0 0 0 3px rgba(255, 201, 79, 0.4);
   outline: none;
+  border-color: #218380;
+  box-shadow: 0 0 0 4px rgba(33, 131, 128, 0.2);
 }
 
 .contact-form button {
-  background-color: #444;
-  color: #f0f0f0;
-  font-weight: bold;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  background-color: #268f8b;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  border-radius: 9999px;
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.2rem;
+  color: #111;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .contact-form button:hover {
-  background-color: #ffc94f;
-  color: #2c2c2c;
+  background-color: #218380;
+  color: #fff;
+  transform: translateY(-3px);
+}
+/* === HERO CONTACTO === */
+.hero-contacto {
+  background: linear-gradient(135deg, #88d498 0%, #c2f0c8 100%);
+  position: relative;
+  overflow: hidden;
+  padding-top: 8rem; /* para separar bien del navbar */
 }
 
-/* ===== Sidebar optimizada ===== */
-.sidebar-interes h3 {
-  margin-bottom: 1rem;
+.hero-contacto .hero-content {
+  padding: 4rem 1rem;
+  text-align: center;
 }
 
-.sidebar-interes ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar-interes li {
-  margin-bottom: 0.75rem;
-}
-
-.sidebar-interes a {
-  color: #f0f0f0;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s;
-  display: block;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-.sidebar-interes a:hover {
-  background-color: #ffc94f;
-  color: #2c2c2c;
-  transform: translateX(5px);
-}
-
-/* ===== Tarjetas informativas genéricas ===== */
-.info-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.info-card {
-  background-color: #2c2c2c;
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  border-color: #ffc94f;
-}
-
-/* === Estilo de tarjetas de lugares === */
-
-.places-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.place-card {
-  background-color: #2c2c2c;
-  border: 1px solid #444;
+.form-success {
+  background-color: #d1fadf;
+  color: #155e37;
+  border: 2px solid #88d498;
+  padding: 1rem;
   border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.place-card:hover {
-  transform: translateY(-4px);
-  border-color: #ffc94f;
-}
-
-.place-card h3 {
-  color: #ffc94f;
-  margin-bottom: 0.5rem;
-}
-
-.place-address {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #ccc;
-  margin-bottom: 0.8rem;
-}
-/* Tag tipo de lugar */
-.place-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  background-color: #ffc94f;
-  color: #2c2c2c;
+  margin: 2rem 0;
+  text-align: center;
   font-weight: bold;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  margin-bottom: 0.5rem;
-}
-
-/* Estilo ya aplicado para la grid */
-.places-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.place-card {
-  background-color: #2c2c2c;
-  border: 1px solid #444;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.place-card:hover {
-  transform: translateY(-4px);
-  border-color: #ffc94f;
-}
-
-.place-card h3 {
-  color: #ffc94f;
-  margin-bottom: 0.5rem;
-}
-
-.place-address {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #ccc;
-  margin-bottom: 0.8rem;
+  font-family: "Staatliches", sans-serif;
 }
