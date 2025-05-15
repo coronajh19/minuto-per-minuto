@@ -1,32 +1,39 @@
 import React, { useState } from "react";
 import AssociationCard from "./AssociationCard";
+import CondonVsPrep from "./CondonVsPrep";
 
 // === Datos de preguntas frecuentes ===
 const faqData = [
   {
     question: "¿Qué es el VIH y cómo se previene?",
     answer:
-      "El VIH es un virus que ataca el sistema inmunológico. La prevención incluye el uso de preservativos, PrEP y asesoramiento especializado.",
+      "El VIH es un virus que debilita las defensas del cuerpo. Se transmite por relaciones sexuales sin protección, sangre o de madre a hijo. Para prevenirlo: usa condón siempre, hazte pruebas regularmente, considera el PrEP si estás en riesgo y nunca compartas agujas.",
   },
   {
-    question: "¿Qué es la PrEP?",
+    question:
+      "¿Por qué el condón sigue siendo el método más efectivo y accesible?",
     answer:
-      "La PrEP es un tratamiento preventivo que reduce significativamente el riesgo de contraer el VIH.",
+      "El condón es barato, fácil de conseguir y protege contra el VIH y otras ITS. Aunque el PrEP es muy eficaz para prevenir VIH, no sustituye la barrera física del preservativo. Usar ambos en conjunto es la mejor protección.",
+  },
+  {
+    question: "¿Qué es el PrEP?",
+    answer:
+      "El PrEP (Profilaxis Pre-Exposición) es una pastilla diaria que reduce hasta en un 99% el riesgo de contraer VIH en relaciones sexuales. No protege contra otras ITS, por eso es ideal combinarlo con preservativos para estar más segurx.",
   },
   {
     question: "¿Qué debo saber sobre las ITS?",
     answer:
-      "Las ITS son infecciones transmitidas sexualmente. La detección temprana, el tratamiento y el uso de protección son esenciales.",
+      "Las ITS son infecciones como sífilis, gonorrea, clamidia o herpes, que se transmiten por contacto sexual. Muchas veces no presentan síntomas al inicio, por eso es clave hacerse chequeos periódicos, usar condón y acudir al médico ante cualquier duda.",
   },
   {
     question: "¿Cómo afecta la salud sexual a la comunidad LGBTQ+?",
     answer:
-      "La salud sexual incluye la prevención de enfermedades y el acceso a servicios y recursos especializados para la comunidad LGBTQ+.",
+      "La comunidad LGBTQ+ enfrenta más barreras para acceder a información y servicios de salud sexual. Esto aumenta la vulnerabilidad a ITS y VIH. Es importante tener espacios seguros, acceso a pruebas, tratamiento y educación sin prejuicios.",
   },
   {
     question: "¿Qué recursos de salud mental existen para la comunidad?",
     answer:
-      "Existen centros, federaciones y organizaciones que ofrecen apoyo psicológico y grupos de ayuda para la salud mental en la comunidad LGBTQ+.",
+      "Existen asociaciones y centros que ofrecen terapia, grupos de apoyo y orientación especializados en diversidad sexual y de género. Buscar ayuda profesional es clave para el bienestar emocional, sobre todo en contextos de discriminación o estigma.",
   },
 ];
 
@@ -107,6 +114,7 @@ function WellnessSection() {
           </div>
         </div>
       </section>
+      <CondonVsPrep />
 
       {/* === Asociaciones de Apoyo === */}
       <section className="section seccion-blanca">
