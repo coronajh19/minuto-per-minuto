@@ -1,47 +1,68 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
+const navItems = [
+  { id: "inicio", label: "Inicio" },
+  { id: "bienestar", label: "Sexualidad y Bienestar" },
+  { id: "lugares", label: "Lugares" },
+  { id: "eventos", label: "Eventos" },
+  { id: "contacto", label: "Contacto" },
+];
 
 function Navbar() {
+  const [activeSection, setActiveSection] = useState("inicio");
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
 
-  const currentPage =
-    location.pathname === "/" ? "inicio" : location.pathname.replace("/", "");
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (visible) {
+          setActiveSection(visible.target.id);
+        }
+      },
+      { threshold: 0.15 }
+    );
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
+    navItems.forEach(({ id }) => {
+      const el = document.getElementById(id);
 
-  const navItems = [
-    { path: "/", label: "Inicio" },
-    { path: "/bienestar", label: "Sexualidad y Bienestar" },
-    { path: "/lugares", label: "Lugares" },
-    { path: "/eventos", label: "Eventos" },
-    { path: "/contacto", label: "Contacto" },
-  ];
+      if (el) observer.observe(el);
+    });
 
-  const getActiveClass = (path) => {
-    const pageKey = path === "/" ? "inicio" : path.replace("/", "");
-    return location.pathname === path ? `active-link active-${pageKey}` : "";
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+    }
   };
 
   return (
-    <nav className={`navbar navbar-${currentPage}`}>
+    <nav className={`navbar navbar-${activeSection}`}>
       <div className="navbar-container">
-        <Link to="/" className="logo">
+        <span className="logo" onClick={() => scrollTo("inicio")}>
           Minuto per Minuto
-        </Link>
-
-        <button className="menu-toggle" onClick={toggleMenu}>
+        </span>
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
           ☰
         </button>
-
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-          {navItems.map((item) => (
-            <li key={item.path}>
-              <Link to={item.path} className={getActiveClass(item.path)}>
-                {item.label}
-              </Link>
+          {navItems.map(({ id, label }) => (
+            <li key={id}>
+              <button
+                className={`nav-btn ${
+                  activeSection === id ? `active-${id}` : ""
+                }`}
+                onClick={() => scrollTo(id)}
+              >
+                {label}
+              </button>
             </li>
           ))}
         </ul>

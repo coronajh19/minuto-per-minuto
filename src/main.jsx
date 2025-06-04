@@ -3,18 +3,19 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles.css";
 
-// Importamos AOS
+import { HelmetProvider } from "react-helmet-async";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Inicializamos AOS
 AOS.init({
-  duration: 1000, // duración de las animaciones en milisegundos
-  once: true, // que se animen solo una vez al entrar en pantalla
+  duration: 1000,
+  once: true,
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>
 );

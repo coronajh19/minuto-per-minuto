@@ -52,8 +52,6 @@ function EventsSection() {
           ))}
         </ul>
 
-        <hr className="separator" />
-
         <h3 className="article-title" data-aos="fade-up">
           Proponer un evento
         </h3>

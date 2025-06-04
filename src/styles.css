@@ -119,44 +119,6 @@ p {
   transition: all 0.3s ease;
 }
 
-/* Botón activo por página */
-.nav-links a.active-inicio {
-  background-color: #ffe07d;
-  border-color: #ffd43b;
-}
-
-.nav-links a.active-bienestar {
-  background-color: #d36d9e;
-  border-color: #d36d9e;
-  color: #111;
-}
-
-.nav-links a.active-lugares {
-  background-color: #73d2de;
-  border-color: #48b8cc;
-  color: #111;
-}
-
-.nav-links a.active-eventos {
-  background-color: #218380;
-  border-color: #1b6f6c;
-  color: #111;
-}
-
-.nav-links a.active-contacto {
-  background-color: #88d498;
-  border-color: #6cc57d;
-  color: #111;
-}
-
-/* Hover para todos */
-.nav-links a:hover {
-  transform: translateY(-2px);
-  border: 2px solid #000;
-  background-color: #fafaf7;
-  color: #000;
-}
-
 /* === Responsive Navbar === */
 @media (max-width: 768px) {
   .menu-toggle {
@@ -488,13 +450,7 @@ p {
     align-items: center;
   }
 }
-.separator {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, #f368a6, #ffe07d);
-  margin: 4rem 0;
-  border: none;
-}
+
 /* Fondos específicos */
 .seccion-rosa {
   background: linear-gradient(135deg, #fbe0ec 0%, #f6c0d8 100%);
@@ -602,6 +558,38 @@ p {
   text-align: center;
   font-weight: bold;
   font-family: "Staatliches", sans-serif;
+}
+.nav-btn {
+  background: none;
+  border: none;
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #111;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #eee;
+  transform: translateY(-2px);
+}
+
+.nav-btn.active-inicio {
+  background-color: #ffe07d;
+}
+.nav-btn.active-bienestar {
+  background-color: #f6c0d8;
+}
+.nav-btn.active-lugares {
+  background-color: #b5bdf4;
+}
+.nav-btn.active-eventos {
+  background-color: #73d2de;
+}
+.nav-btn.active-contacto {
+  background-color: #88d498;
 }
 
 @media (max-width: 480px) {
