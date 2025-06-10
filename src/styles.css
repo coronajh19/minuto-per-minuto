@@ -146,7 +146,7 @@ p {
   }
 }
 
-/* === CONTACT PAGE BUTTON ACTUALIZADO === */
+/* === CONTACT PAGE BUTTON === */
 .contact-form button {
   margin-top: 1rem;
   padding: 0.8rem 2rem;
@@ -282,14 +282,12 @@ p {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Mejor hover para las tarjetas */
 .info-card:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  border-color: #f368a6; /* Línea rosa ligera al hacer hover */
+  border-color: #f368a6;
 }
 
-/* Suave transición de todos los cambios */
 .info-card {
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
@@ -356,6 +354,18 @@ p {
   left: 0;
   top: 0;
 }
+.association-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.association-cards > div {
+  width: 300px;
+  display: flex;
+}
 
 /* Recomendación Final Compacta */
 .recomendacion-final-compact {
@@ -389,7 +399,7 @@ p {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-/* === RESOURCE LOCATION (dentro de Recursos Útiles) === */
+/* === RESOURCE LOCATION === */
 .resource-location {
   margin-top: 1rem;
   font-size: 1rem;
@@ -409,36 +419,29 @@ p {
 .resource-location li {
   margin-bottom: 0.3rem;
 }
-/* === NUEVAS CLASES PARA WELLNESS === */
 
-/* Espaciado extra para cada sección */
 .section h2.titulo-dibujado {
   margin-bottom: 2.5rem;
 }
 
-/* Extra separación en los grupos de tarjetas o FAQs */
 .info-cards,
 .faq-category {
   margin-top: 2rem;
 }
 
-/* Mejora general de botones FAQ (hover) */
 .faq-question:hover {
   color: #d36d9e;
 }
 
-/* Más padding para la sección blanca (Asociaciones) */
 .seccion-blanca {
   background-color: #fafaf7;
   transform: translateX(5px);
 }
 
-/* Mejoras visuales para el botón abierto del FAQ */
 .faq-item.open .faq-question {
   color: #218380;
 }
 
-/* Espaciado en recursos útiles (listas) */
 .resource-location ul {
   margin-top: 0.5rem;
 }
@@ -466,7 +469,6 @@ p {
   position: relative;
 }
 
-/* Suave sombra interna a cada sección para dar profundidad */
 .section::after {
   content: "";
   position: absolute;

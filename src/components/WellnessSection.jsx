@@ -117,12 +117,12 @@ function WellnessSection() {
       <CondonVsPrep />
 
       {/* === Asociaciones de Apoyo === */}
-      <section className="section seccion-blanca">
+      <section className="section seccion-rosa">
         <div className="content-constrain">
           <h2 className="titulo-dibujado" data-aos="fade-up">
             Asociaciones de Apoyo
           </h2>
-          <div className="info-cards horizontal-cards">
+          <div className="association-cards">
             {[
               {
                 title: "XEGA - Asociación LGBT de Asturias",
