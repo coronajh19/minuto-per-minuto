@@ -6,8 +6,13 @@ const AssociationCard = React.memo(({ title, description, link, linkText }) => (
     <h4>{title}</h4>
     <p>{description}</p>
     {link && (
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        {linkText || "Saber más →"}
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="assoc-btn"
+      >
+        {linkText || "Visitar"}
       </a>
     )}
   </div>

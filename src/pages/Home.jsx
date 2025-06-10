@@ -25,7 +25,7 @@ function Home() {
 
       <section
         id="inicio"
-        className="section seccion-inicio full-height"
+        className="section seccion-inicio hero-mostaza full-hero"
         data-aos="fade-up"
       >
         <HeroSection />
