@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AssociationCard from "./AssociationCard";
-import CondonVsPrep from "./CondonVsPrep";
+import PreventionComparison from "./PreventionComparison";
 
 // === Datos de preguntas frecuentes ===
 const faqData = [
@@ -73,16 +73,13 @@ const resourcesData = [
     ],
   },
 ];
-
 function WellnessSection() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [openResourceIndex, setOpenResourceIndex] = useState(null);
 
-  const toggleFaq = (index) =>
-    setOpenFaqIndex(index === openFaqIndex ? null : index);
-
-  const toggleResource = (index) =>
-    setOpenResourceIndex(index === openResourceIndex ? null : index);
+  const toggleFaq = (i) => setOpenFaqIndex(i === openFaqIndex ? null : i);
+  const toggleResource = (i) =>
+    setOpenResourceIndex(i === openResourceIndex ? null : i);
 
   return (
     <>
@@ -93,20 +90,17 @@ function WellnessSection() {
             Preguntas Frecuentes
           </h2>
           <div className="faq-category">
-            {faqData.map((item, index) => (
+            {faqData.map((item, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="faq-item"
                 data-aos="fade-up"
-                data-aos-delay={index * 100}
+                data-aos-delay={idx * 100}
               >
-                <button
-                  className="faq-question"
-                  onClick={() => toggleFaq(index)}
-                >
+                <button className="faq-question" onClick={() => toggleFaq(idx)}>
                   {item.question}
                 </button>
-                {openFaqIndex === index && (
+                {openFaqIndex === idx && (
                   <p className="faq-answer">{item.answer}</p>
                 )}
               </div>
@@ -114,7 +108,9 @@ function WellnessSection() {
           </div>
         </div>
       </section>
-      <CondonVsPrep />
+
+      {/* === Comparación Condón vs PrEP === */}
+      <PreventionComparison />
 
       {/* === Asociaciones de Apoyo === */}
       <section className="section seccion-rosa">
@@ -145,8 +141,8 @@ function WellnessSection() {
                 link: "https://felgtbi.org/",
                 delay: 200,
               },
-            ].map((card, index) => (
-              <div key={index} data-aos="zoom-in" data-aos-delay={card.delay}>
+            ].map((card, i) => (
+              <div key={i} data-aos="zoom-in" data-aos-delay={card.delay}>
                 <AssociationCard
                   title={card.title}
                   description={card.description}
@@ -166,28 +162,28 @@ function WellnessSection() {
             Recursos Útiles en Asturias
           </h2>
           <div className="faq-category">
-            {resourcesData.map((resource, index) => (
+            {resourcesData.map((res, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="faq-item"
                 data-aos="fade-up"
-                data-aos-delay={index * 100}
+                data-aos-delay={idx * 100}
               >
                 <button
                   className="faq-question"
-                  onClick={() => toggleResource(index)}
+                  onClick={() => toggleResource(idx)}
                 >
-                  {resource.title}
+                  {res.title}
                 </button>
-                {openResourceIndex === index && (
+                {openResourceIndex === idx && (
                   <div className="faq-answer">
-                    <p>{resource.description}</p>
-                    {resource.locations.map((loc, i) => (
-                      <div key={i} className="resource-location">
+                    <p>{res.description}</p>
+                    {res.locations.map((loc, j) => (
+                      <div key={j} className="resource-location">
                         <strong>{loc.city}:</strong>
                         <ul>
-                          {loc.places.map((place, j) => (
-                            <li key={j}>{place}</li>
+                          {loc.places.map((p, k) => (
+                            <li key={k}>{p}</li>
                           ))}
                         </ul>
                       </div>

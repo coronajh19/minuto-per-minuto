@@ -602,3 +602,271 @@ p {
     font-size: 1.1rem;
   }
 }
+/* === PREVENTION COMPARISON === */
+.comparison-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.comparison-sub {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.comparison-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.comparison-card {
+  border: 2px solid;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.comparison-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-list {
+  list-style: none;
+  padding: 1rem;
+}
+.card-list li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.card-list li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+}
+
+.highlight-card {
+  border: 2px solid;
+  border-radius: 1rem;
+  margin: 3rem auto 0;
+  max-width: 800px;
+  background: #fff;
+}
+
+.highlight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.highlight-icon {
+  font-size: 1.5rem;
+}
+
+.highlight-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.highlight-text {
+  padding: 1rem;
+  color: #333;
+}
+/* === AJUSTE ESPACIADO TARJETAS PREVENTION === */
+.comparison-card .card-header {
+  /* Reducimos el padding inferior para acercar el contenido */
+  padding-bottom: 0.6rem;
+}
+
+.comparison-card .card-list {
+  /* Reducimos el padding superior para acercar la lista al header */
+  padding-top: 0.6rem;
+}
+
+/* === AJUSTE ESPACIADO TARJETA DESTACADA === */
+.highlight-card .highlight-header {
+  padding-bottom: 0.6rem;
+}
+
+.highlight-card .highlight-text {
+  padding-top: 0.6rem;
+}
+/* ===============================
+   SAFE PLACES SECTION STYLES
+   =============================== */
+
+/* --- Root Accent Variables --- */
+:root {
+  --accent-asociacion: rgba(255, 198, 92, 0.6);
+  --accent-cafeteria: rgba(216, 131, 166, 0.6);
+  --accent-bar: rgba(243, 104, 155, 0.6);
+  --accent-discoteca: rgba(115, 210, 222, 0.6);
+}
+
+/* --- Section Container --- */
+.section.seccion-lugares {
+  background: linear-gradient(135deg, #7e8ce0 0%, #b5bdf4 100%);
+  padding: 4rem 1rem;
+}
+
+.content-constrain {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- Title & Subtitle --- */
+.lugares-title {
+  font-size: 3rem;
+  color: #111;
+  text-align: center;
+}
+.lugares-sub {
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+  margin: 0.5rem 0 2rem;
+}
+@media (max-width: 768px) {
+  .lugares-title {
+    font-size: 2rem;
+    margin-top: 3rem;
+    line-height: 1.2;
+  }
+  .lugares-sub {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* --- Type Header --- */
+.type-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  margin: 2rem 0 1rem;
+  border-left: 5px solid var(--accent);
+}
+.type-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+.type-title {
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  color: #111;
+}
+
+/* --- Places Grid --- */
+.places-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+@media (max-width: 768px) {
+  .places-grid {
+    display: block;
+  }
+}
+
+/* --- Place Cards --- */
+.place-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  border: 2px solid #ddd;
+  border-radius: 1rem;
+  background: #fff;
+  padding: 1.2rem 1.5rem;
+  transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.place-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+@media (max-width: 768px) {
+  .place-card {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+/* --- Place Content --- */
+.place-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.place-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #444;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+.place-address,
+.place-description {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+
+/* --- Maps Button --- */
+.maps-button {
+  display: inline-block;
+  background-color: #218380;
+  color: #fff;
+  border-radius: 2rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: auto;
+  align-self: flex-start; /* ajusta al contenido */
+  transition: background-color 0.2s ease;
+}
+.maps-button:hover {
+  background-color: #18645c;
+  color: #fff;
+}
+
+/* --- Accent Variables by Type Class --- */
+.card-Asociación {
+  --accent: var(--accent-asociacion);
+}
+.card-Cafetería-Librería {
+  --accent: var(--accent-cafeteria);
+}
+.card-Bar {
+  --accent: var(--accent-bar);
+}
+.card-Bar-Disco {
+  --accent: var(--accent-bar);
+}
+.card-Discoteca {
+  --accent: var(--accent-discoteca);
+}
