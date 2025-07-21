@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EventCard from "./EventCard";
+import "../styles.css";
 
 function EventsSection() {
   const [events, setEvents] = useState([
@@ -46,62 +47,64 @@ function EventsSection() {
         <h2 className="titulo-dibujado" data-aos="fade-up">
           Próximos Eventos
         </h2>
+        <p className="event-sub" data-aos="fade-up" data-aos-delay="100">
+          No te pierdas las actividades y encuentros pensados para ti
+        </p>
+
+        {/* Lista de eventos */}
         <ul className="event-list">
           {events.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
         </ul>
 
-        <h3 className="article-title" data-aos="fade-up">
-          Proponer un evento
-        </h3>
-        <form
-          onSubmit={handleSubmit}
-          className="contact-form"
-          data-aos="fade-up"
-        >
-          <label>
-            Título del evento:
-            <input
-              type="text"
-              name="title"
-              value={formEvent.title}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Fecha:
-            <input
-              type="date"
-              name="date"
-              value={formEvent.date}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Lugar:
-            <input
-              type="text"
-              name="location"
-              value={formEvent.location}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Descripción:
-            <textarea
-              name="description"
-              rows="3"
-              value={formEvent.description}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <button type="submit">Agregar Evento</button>
-        </form>
+        {/* Formulario en tarjeta */}
+        <div className="event-form-container" data-aos="fade-up">
+          <h3>Proponer un evento</h3>
+          <form onSubmit={handleSubmit} className="contact-form">
+            <label>
+              Título del evento:
+              <input
+                type="text"
+                name="title"
+                value={formEvent.title}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Fecha:
+              <input
+                type="date"
+                name="date"
+                value={formEvent.date}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Lugar:
+              <input
+                type="text"
+                name="location"
+                value={formEvent.location}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Descripción:
+              <textarea
+                name="description"
+                rows="3"
+                value={formEvent.description}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <button type="submit">Agregar Evento</button>
+          </form>
+        </div>
       </div>
     </section>
   );

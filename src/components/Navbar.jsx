@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-const navItems = [
-  { id: "inicio", label: "Inicio" },
-  { id: "bienestar", label: "Sexualidad y Bienestar" },
-  { id: "lugares", label: "Lugares" },
-  { id: "eventos", label: "Eventos" },
-  { id: "contacto", label: "Contacto" },
-];
+import { navItems } from "../data/navItems"; // Importamos el menú
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("inicio");
@@ -16,16 +9,13 @@ function Navbar() {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.find((entry) => entry.isIntersecting);
-        if (visible) {
-          setActiveSection(visible.target.id);
-        }
+        if (visible) setActiveSection(visible.target.id);
       },
       { threshold: 0.15 }
     );
 
     navItems.forEach(({ id }) => {
       const el = document.getElementById(id);
-
       if (el) observer.observe(el);
     });
 
@@ -43,11 +33,17 @@ function Navbar() {
   return (
     <nav className={`navbar navbar-${activeSection}`}>
       <div className="navbar-container">
-        <span className="logo" onClick={() => scrollTo("inicio")}>
+        <button
+          className="logo"
+          onClick={() => scrollTo("inicio")}
+          aria-label="Ir al inicio"
+        >
           Minuto per Minuto
-        </span>
+        </button>
         <button
           className="menu-toggle"
+          aria-label="Abrir menú"
+          aria-expanded={menuOpen}
           onClick={() => setMenuOpen((prev) => !prev)}
         >
           ☰
