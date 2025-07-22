@@ -1,27 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
+
+const INITIAL_FORM = {
+  name: "",
+  email: "",
+  message: "",
+};
 
 function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState(INITIAL_FORM);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Formulario enviado:", formData);
-    localStorage.setItem("contactForm", JSON.stringify(formData));
-    setFormData({ name: "", email: "", message: "" });
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-  };
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log("Formulario enviado:", formData);
+      localStorage.setItem("contactForm", JSON.stringify(formData));
+
+      setFormData(INITIAL_FORM);
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+    },
+    [formData]
+  );
 
   return (
     <section className="section seccion-contacto">
@@ -74,7 +79,7 @@ function ContactPage() {
               value={formData.message}
               onChange={handleChange}
               required
-            ></textarea>
+            />
           </label>
           <button type="submit">Enviar</button>
         </form>
